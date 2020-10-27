@@ -2,14 +2,19 @@
     <div>
         <h1>Home</h1>
         <button @click="toUsers">Usersのページにいく</button>
+        <router-view></router-view>
     </div>
+    
 </template>
 
 <script>
 export default {
     methods: {
         toUsers() {
-            this.$router.push({ path: "users" });
+            this.$router.push({
+                  name: 'users-id-profile',
+                  params: { id: 1 }
+            });
         }
     }
 }
