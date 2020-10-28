@@ -7,11 +7,11 @@
         exact
         class="link"
     >Home</router-link>
-    <router-link 
-        to="/users"
-        active-class="link--active"
-        exact
-        class="link"
+    <router-link
+      to="/users"
+      active-class="link--active"
+      exact
+      class="link"
     >Users</router-link>
   </nav>  
 </template>
