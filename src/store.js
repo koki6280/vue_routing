@@ -6,10 +6,34 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-      count: 2
+      count: 2,
+      message: ""
     },
     getters: {
       doubleCount: state => state.count * 2,
-      tripleCount: state => state.count * 3
+      tripleCount: state => state.count * 3,
+      message: state => state.message
+    },
+    mutations: {
+      increment(state, number) {
+        state.count += number;
+      },
+      decrement(state, number) {
+        state.count -= number;
+      },
+      updataMessage(state, newMessage) {
+          state.message = newMessage;
+      }
+    },
+    actions: {
+      increment({commit}, number) {
+        commit('increment', number);
+      },
+      decrement({commit}, number) {
+        commit('decrement', number);
+      },
+      updataMessage({ commit }, newMessage) {
+        commit("updateMessage", newMessage);
+      }
     }
 });

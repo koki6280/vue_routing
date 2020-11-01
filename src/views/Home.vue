@@ -4,18 +4,32 @@
     <button @click="toUsers">Usersのページに行く</button>
     <p>{{ doubleCount }}</p>
     <p>{{ tripleCount }}</p>
+    <input 
+      type="text" 
+      :value="message"
+      @input="updateMessage"
+    >
+    <p>{{ message }}</p>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
-    doubleCount() {
-      return this.$store.getters.doubleCount;
-    },
-    tripleCount() {
-      return this.$store.getters.tripleCount;
-    }
+      ...mapGetters(["doubleCount", "tripleCount"]),
+      //message() {
+        //  return this.$store.getters.message;
+     // }
+     message: {
+        get() {
+          return this.$store.getters.message;
+        },
+        set(value) {
+          this.$store.dispatch("updateMessage", value);
+        }
+     }
   },
   methods: {
     toUsers() {
